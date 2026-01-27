@@ -24,14 +24,18 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">ET</div>
+            <div class="logo">Elias Tarvainen</div>
             <ul class="nav-links">
-                <li><a href="#about">Tietoja minusta</a></li>
-                <li><a href="#experience">Kokemus</a></li>
-                <li><a href="#skills">Taidot</a></li>
-                <li><a href="#projects">Projektit</a></li>
-                <li><a href="#contact">Yhteydenotto</a></li>
+                <li><a href="#about" data-i18n="nav.about">Tietoja minusta</a></li>
+                <li><a href="#experience" data-i18n="nav.experience">Kokemus</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Taidot</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Projektit</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Yhteydenotto</a></li>
             </ul>
+            <button class="lang-switcher" id="langSwitcher" aria-label="Switch language">
+                <span class="lang-icon">🌐</span>
+                <span class="lang-text" id="langText">EN</span>
+            </button>
         </nav>
     </header>
 
@@ -39,10 +43,10 @@
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Elias Tarvainen</h1>
-            <p class="hero-subtitle">Ohjelmistokehitysopiskelija | Web-kehitys | Peliohjelmointi | Robotiikka</p>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Ohjelmistokehitysopiskelija | Web-kehitys | Peliohjelmointi | Robotiikka</p>
             <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">Projektit</a>
-                <a href="#contact" class="btn btn-secondary">Ota yhteyttä</a>
+                <a href="#projects" class="btn btn-primary" data-i18n="hero.projects">Projektit</a>
+                <a href="#contact" class="btn btn-secondary" data-i18n="hero.contact">Ota yhteyttä</a>
             </div>
         </div>
     </section>
@@ -50,12 +54,12 @@
     <!-- About Section -->
     <section id="about" class="section about">
         <div class="container">
-            <h2 class="section-title">Tietoja minusta</h2>
+            <h2 class="section-title" data-i18n="about.title">Tietoja minusta</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Olen ohjelmistokehitysopiskelija, jolla on kiinnostus moderniin teknologiaan ja sovelluskehitykseen. Harjoittelen erilaisten ohjelmointiratkaisujen toteuttamista ja kehitän osaamistani jatkuvasti projektien ja kokeilujen kautta. Tavoitteenani on rakentaa selkeitä, toimivia ja käyttäjäystävällisiä ratkaisuja.</p>
-                    <p>Ohjelmoinnin maailmaan tutustuin jo nuorena, ja siitä lähtien olen ollut innokas oppimaan uutta. Kouluprojektien lisäksi olen toteuttanut useita vapaa-ajan projekteja, jotka ovat auttaneet minua kehittämään käytännön taitoja ja ymmärtämään paremmin ohjelmistokehityksen eri osa-alueita.</p>
-                    <p>Eriityisesti olen kiinnostunut web-kehityksestä, peliohjelmoinnista ja robotiikasta. Uskon, että käytännön projektit ovat paras tapa oppia, joten pyrin aina toteuttamaan ideoitani konkreettiseksi koodiksi. Tulevaisuudessa haluan jatkaa oppimista ja kehittyä osaavaksi ohjelmistokehittäjäksi.</p>
+                    <p data-i18n="about.p1">Olen ohjelmistokehitysopiskelija, jolla on kiinnostus moderniin teknologiaan ja sovelluskehitykseen. Harjoittelen erilaisten ohjelmointiratkaisujen toteuttamista ja kehitän osaamistani jatkuvasti projektien ja kokeilujen kautta. Tavoitteenani on rakentaa selkeitä, toimivia ja käyttäjäystävällisiä ratkaisuja.</p>
+                    <p data-i18n="about.p2">Ohjelmoinnin maailmaan tutustuin jo nuorena, ja siitä lähtien olen ollut innokas oppimaan uutta. Kouluprojektien lisäksi olen toteuttanut useita vapaa-ajan projekteja, jotka ovat auttaneet minua kehittämään käytännön taitoja ja ymmärtämään paremmin ohjelmistokehityksen eri osa-alueita.</p>
+                    <p data-i18n="about.p3">Eriityisesti olen kiinnostunut web-kehityksestä, peliohjelmoinnista ja robotiikasta. Uskon, että käytännön projektit ovat paras tapa oppia, joten pyrin aina toteuttamaan ideoitani konkreettiseksi koodiksi. Tulevaisuudessa haluan jatkaa oppimista ja kehittyä osaavaksi ohjelmistokehittäjäksi.</p>
                 </div>
             </div>
         </div>
@@ -64,27 +68,27 @@
     <!-- Experience Section -->
     <section id="experience" class="section experience">
         <div class="container">
-            <h2 class="section-title">Aiempi kokemus</h2>
+            <h2 class="section-title" data-i18n="experience.title">Aiempi kokemus</h2>
             <div class="experience-list">
                 <div class="experience-item">
                     <div class="experience-icon">💻</div>
                     <div class="experience-details">
-                        <h3>Ohjelmistokehitys</h3>
-                        <span class="experience-date">2025–nykyhetki</span>
+                        <h3 data-i18n="experience.software">Ohjelmistokehitys</h3>
+                        <span class="experience-date" data-i18n="experience.softwareDate">2025–nykyhetki</span>
                     </div>
                 </div>
                 <div class="experience-item">
                     <div class="experience-icon">🚀</div>
                     <div class="experience-details">
-                        <h3>Vapaa-ajan projektit</h3>
-                        <span class="experience-date">2021–nykyhetki</span>
+                        <h3 data-i18n="experience.projects">Vapaa-ajan projektit</h3>
+                        <span class="experience-date" data-i18n="experience.projectsDate">2021–nykyhetki</span>
                     </div>
                 </div>
                 <div class="experience-item">
                     <div class="experience-icon">🎓</div>
                     <div class="experience-details">
-                        <h3>Peruskoulu</h3>
-                        <span class="experience-date">2016–2025</span>
+                        <h3 data-i18n="experience.school">Peruskoulu</h3>
+                        <span class="experience-date" data-i18n="experience.schoolDate">2016–2025</span>
                     </div>
                 </div>
             </div>
@@ -94,10 +98,10 @@
     <!-- Skills Section -->
     <section id="skills" class="section skills">
         <div class="container">
-            <h2 class="section-title">Taidot</h2>
+            <h2 class="section-title" data-i18n="skills.title">Taidot</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Ohjelmointikielet</h3>
+                    <h3 data-i18n="skills.programming">Ohjelmointikielet</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">HTML</span>
                         <span class="skill-tag">CSS</span>
@@ -106,27 +110,28 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Web-kehitys</h3>
+                    <h3 data-i18n="skills.web">Web-kehitys</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Responsiivinen suunnittelu</span>
-                        <span class="skill-tag">Frontend-kehitys</span>
-                        <span class="skill-tag">Verkkosivut</span>
+                        <span class="skill-tag" data-i18n="skills.responsive">Responsiivinen suunnittelu</span>
+                        <span class="skill-tag" data-i18n="skills.frontend">Frontend-kehitys</span>
+                        <span class="skill-tag" data-i18n="skills.backend">Backend-kehitys</span>
+                        <span class="skill-tag" data-i18n="skills.websites">Verkkosivut</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Muut taidot</h3>
+                    <h3 data-i18n="skills.other">Muut taidot</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Peliohjelmointi (Roblox)</span>
-                        <span class="skill-tag">Robotiikka</span>
-                        <span class="skill-tag">Ongelmanratkaisu</span>
-                        <span class="skill-tag">Projektinhallinta</span>
+                        <span class="skill-tag" data-i18n="skills.game">Peliohjelmointi (Roblox)</span>
+                        <span class="skill-tag" data-i18n="skills.robotics">Robotiikka</span>
+                        <span class="skill-tag" data-i18n="skills.problem">Ongelmanratkaisu</span>
+                        <span class="skill-tag" data-i18n="skills.management">Projektinhallinta</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Kielitaito</h3>
+                    <h3 data-i18n="skills.languages">Kielitaito</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Suomi (äidinkieli)</span>
-                        <span class="skill-tag">Englanti (hyvä)</span>
+                        <span class="skill-tag" data-i18n="skills.finnish">Suomi (äidinkieli)</span>
+                        <span class="skill-tag" data-i18n="skills.english">Englanti (erinomainen)</span>
                     </div>
                 </div>
             </div>
@@ -136,17 +141,17 @@
     <!-- Work Experience Section -->
     <section class="section work">
         <div class="container">
-            <h2 class="section-title">Työkokemus</h2>
+            <h2 class="section-title" data-i18n="work.title">Työkokemus</h2>
             <div class="work-grid">
                 <div class="work-item">
-                    <h3>TET-harjoittelut</h3>
-                    <p>Riekonmarjan päiväkoti<br>1 viikko</p>
-                    <p class="work-description">Harjoittelin päiväkodin arjessa ja autoin lastenhoitotehtävissä. Opin tiimityöskentelyä ja vastuunkantoa.</p>
+                    <h3 data-i18n="work.tet">TET-harjoittelut</h3>
+                    <p data-i18n="work.daycare">Riekonmarjan päiväkoti<br>1 viikko</p>
+                    <p class="work-description" data-i18n="work.daycareDesc">Harjoittelin päiväkodin arjessa ja autoin lastenhoitotehtävissä. Opin tiimityöskentelyä ja vastuunkantoa.</p>
                 </div>
                 <div class="work-item">
-                    <h3>TET-harjoittelut</h3>
-                    <p>S-market Ritaharju<br>1 viikko</p>
-                    <p class="work-description">Opin kaupan alan perusteita, asiakaspalvelua ja varastotyöskentelyä. Harjoittelin erilaisia myymälätehtäviä.</p>
+                    <h3 data-i18n="work.tet">TET-harjoittelut</h3>
+                    <p data-i18n="work.market">S-market Ritaharju<br>1 viikko</p>
+                    <p class="work-description" data-i18n="work.marketDesc">Opin kaupan alan perusteita, asiakaspalvelua ja varastotyöskentelyä. Harjoittelin erilaisia myymälätehtäviä.</p>
                 </div>
             </div>
         </div>
@@ -155,17 +160,17 @@
     <!-- Projects Section -->
     <section id="projects" class="section projects">
         <div class="container">
-            <h2 class="section-title">Projektit</h2>
+            <h2 class="section-title" data-i18n="projects.title">Projektit</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
                         <img src="robo.png">
                     </div>
                     <div class="project-content">
-                        <h3>ParkPolish-robotti</h3>
-                        <p class="project-type">Kouluprojekti</p>
-                        <p class="project-description">Autonominen palvelurobotti autojen puhdistamiseen. Suunnitteluprojekti, jossa kehitettiin robotin toimintalogiikkaa.</p>
-                        <a href="robo-project.html" class="project-link">Katso projektia →</a>
+                        <h3 data-i18n="projects.roboTitle">ParkPolish-robotti</h3>
+                        <p class="project-type" data-i18n="projects.school">Kouluprojekti</p>
+                        <p class="project-description" data-i18n="projects.roboDesc">Autonominen palvelurobotti autojen puhdistamiseen. Suunnitteluprojekti, jossa kehitettiin robotin toimintalogiikkaa.</p>
+                        <a href="robo-project.html" class="project-link" data-i18n="projects.view">Katso projektia →</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -173,10 +178,10 @@
                         <img src="osarkour.png">
                     </div>
                     <div class="project-content">
-                        <h3>Osarkour peli ja kartta</h3>
-                        <p class="project-type">Kouluprojekti</p>
-                        <p class="project-description">Roblox-pelissä toteutettu parkour-peli ja sen kartta. Projekti sisälsi pelin mekaniikan suunnittelua ja visuaalisen toteutuksen luomista.</p>
-                        <a href="https://www.roblox.com/games/110680508484976/Osarkour" class="project-link" target="_blank">Katso projektia →</a>
+                        <h3 data-i18n="projects.osarkourTitle">Osarkour peli ja kartta</h3>
+                        <p class="project-type" data-i18n="projects.school">Kouluprojekti</p>
+                        <p class="project-description" data-i18n="projects.osarkourDesc">Roblox-pelissä toteutettu parkour-peli ja sen kartta. Projekti sisälsi pelin mekaniikan suunnittelua ja visuaalisen toteutuksen luomista.</p>
+                        <a href="https://www.roblox.com/games/110680508484976/Osarkour" class="project-link" target="_blank" data-i18n="projects.view">Katso projektia →</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -184,10 +189,10 @@
                         <img src="parkourrebornhub.png">
                     </div>
                     <div class="project-content">
-                        <h3>Community hub -sivusto</h3>
-                        <p class="project-type">Vapaa-ajan projekti</p>
-                        <p class="project-description">Parkour-pelille tarkoitettu yhteisöalusta ja verkkosivusto (parkourreborn.com). Sivusto tarjoaa pelaajille tietoa pelistä, yhteisötoimintoja ja päivityksiä.</p>
-                        <a href="https://parkourreborn.com" class="project-link" target="_blank">Katso sivustoa →</a>
+                        <h3 data-i18n="projects.hubTitle">Community hub -sivusto</h3>
+                        <p class="project-type" data-i18n="projects.personal">Vapaa-ajan projekti</p>
+                        <p class="project-description" data-i18n="projects.hubDesc">Parkour-pelille tarkoitettu yhteisöalusta ja verkkosivusto (parkourreborn.com). Sivusto tarjoaa pelaajille tietoa pelistä, yhteisötoimintoja ja päivityksiä.</p>
+                        <a href="https://parkourreborn.com" class="project-link" target="_blank" data-i18n="projects.viewSite">Katso sivustoa →</a>
                     </div>
                 </div>
             </div>
@@ -197,7 +202,7 @@
     <!-- Contact Section -->
     <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title">Yhteydenotto</h2>
+            <h2 class="section-title" data-i18n="contact.title">Yhteydenotto</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
@@ -226,7 +231,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 Elias Tarvainen. Kaikki oikeudet pidätetään.</p>
+        <p data-i18n="footer">&copy; 2026 Elias Tarvainen. Kaikki oikeudet pidätetään.</p>
     </footer>
 
     <script src="script.js"></script>
