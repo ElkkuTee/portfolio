@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robo-projekti - Elias Tarvainen</title>
+    <title>ParkPolish-robotti - Elias Tarvainen</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,8 +40,8 @@
         <div class="container">
             <div class="project-header">
                 <a href="index.html#projects" class="back-link">← Takaisin projektien listaan</a>
-                <h1 class="project-title">Robo-projekti</h1>
-                <p class="project-subtitle">Kouluprojekti - Robottiprojekti, jossa kehitettiin ohjausjärjestelmä ja mekaniikka</p>
+                <h1 class="project-title">ParkPolish-robotti</h1>
+                <p class="project-subtitle">Kouluprojekti - Autonominen palvelurobotti autojen puhdistamiseen</p>
             </div>
         </div>
     </section>
@@ -95,16 +95,77 @@
         <div class="container">
             <div class="details-content">
                 <h2>Projektin tiedot</h2>
-                <p>Robo-projekti oli koulussa toteutettu harjoitusprojekti, jossa kehitettiin perinteinen robottiympäristö. Projektissa keskityttiin erityisesti mekaniikan suunnitteluun, ohjausjärjestelmän toteutukseen ja toiminnallisten ominaisuuksien kehittämiseen.</p>
+                <p>ParkPolish-robotti on älykäs, autonominen palvelurobotti, joka on suunniteltu autojen ulkopintojen puhdistamiseen ilman jatkuvaa käyttäjän läsnäoloa. Robotti on tarkoitettu käytettäväksi erityisesti parkkialueilla, autopesuloissa ja muissa sisä- ja ulkotiloissa, joissa ajoneuvoja pysäköidään säännöllisesti. ParkPolish yhdistää modernin robotiikan, anturiteknologian ja käyttäjäystävällisen ohjelmiston, jonka avulla auton puhdistus on nopeaa, turvallista ja vaivatonta.</p>
+                <p class="note">Tämä projekti on teoreettinen suunnitteluprojekti, jossa on kehitetty robotin toimintalogiikkaa pseudokoodina. Robottia ei ole valmistettu fyysisesti, mutta projekti auttoi ymmärtämään autonomisten palvelurobottien toimintaperiaatteita ja suunnittelua.</p>
                 
+                <div class="project-section">
+                    <h3>Käyttötarkoitus ja kohderyhmä</h3>
+                    <p>ParkPolish on suunnattu erityisesti kiireisille auton omistajille, jotka haluavat pitää ajoneuvonsa puhtaana ilman aikaa vieviä pesukäyntejä. Lisäksi robotti soveltuu yrityskäyttöön, esimerkiksi parkkihalleihin, hotelleihin ja yritysten pysäköintialueille, joissa asiakkaille halutaan tarjota lisäpalveluita.</p>
+                    <p><strong>Tyypillisiä käyttökohteita ovat:</strong></p>
+                    <ul>
+                        <li>Parkkialueet ja parkkihallit</li>
+                        <li>Autopesulat ja huoltamot</li>
+                        <li>Taloyhtiöiden yhteiset pysäköintialueet</li>
+                        <li>Yritysten ja hotellien asiakaspysäköinti</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Mekaaninen rakenne ja ulkoasu</h3>
+                    <p>ParkPolishin runko on valmistettu kevyestä mutta kestävästä alumiinista, joka kestää kosteutta ja mekaanista rasitusta. Ulkopuoliset suojakuoret ovat ABS-muovia, joka suojaa sisäisiä komponentteja ja antaa robotille modernin ulkonäön. Robotin muotoilu on pyöristetty ja kompakti, jotta se pystyy liikkumaan ahtaissakin tiloissa auton ympärillä.</p>
+                    <p>Robotissa on useita pyöriä, jotka mahdollistavat tarkan ja vakaan liikkumisen eri alustoilla. Puhdistus tapahtuu pyörivien harjamekanismien ja vesisuuttimien avulla, jotka on suunniteltu niin, etteivät ne vahingoita auton pintaa.</p>
+                </div>
+
+                <div class="project-section">
+                    <h3>Sähköiset komponentit ja laitteisto</h3>
+                    <p>ParkPolish sisältää useita sähköisiä ja elektronisia komponentteja, jotka mahdollistavat sen älykkään toiminnan. Robotin sydämenä toimii mikro-ohjainyksikkö (MCU), joka vastaa liikkeestä, anturitiedon käsittelystä ja puhdistusprosessin ohjauksesta.</p>
+                    <p><strong>Keskeisiä komponentteja ovat:</strong></p>
+                    <ul>
+                        <li>Mikro-ohjainyksikkö (MCU)</li>
+                        <li>Moottorit ja moottoriohjaimet</li>
+                        <li>LIDAR-anturi ympäristön hahmottamiseen</li>
+                        <li>Infrapuna-anturit törmäyksen estämiseen</li>
+                        <li>Ladattava Li-ion-akku</li>
+                        <li>Kosketusnäyttö käyttöliittymää varten</li>
+                        <li>LED-valot tilan ja toiminnan ilmaisemiseen</li>
+                        <li>Langattomat yhteydet (Wi-Fi / Bluetooth)</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Ohjelmisto ja älykkyys</h3>
+                    <p>ParkPolishin ohjelmisto on suunniteltu modulaariseksi ja helposti päivitettäväksi. Robotti käyttää antureista saatua tietoa auton muodon ja sijainnin tunnistamiseen. Ohjelmisto ohjaa robotin liikeratoja ja varmistaa, että koko auton pinta käsitellään tasaisesti.</p>
+                    <p><strong>Ohjelmiston päätoiminnot:</strong></p>
+                    <ul>
+                        <li>Auton mallin ja koon tunnistus</li>
+                        <li>Navigointi auton ympärillä</li>
+                        <li>Puhdistusprosessin hallinta</li>
+                        <li>Turvatoimintojen valvonta</li>
+                        <li>Yhteys mobiilisovellukseen</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Käyttöliittymä</h3>
+                    <p>Käyttöliittymä on suunniteltu helppokäyttöiseksi myös käyttäjille, joilla ei ole teknistä taustaa. Robotissa on kosketusnäyttö, josta käyttäjä voi:</p>
+                    <ul>
+                        <li>Käynnistää ja pysäyttää puhdistuksen</li>
+                        <li>Valita pesuohjelman (kevyt, normaali, tehopesu)</li>
+                        <li>Tarkistaa akun varaustilan</li>
+                        <li>Tarkastella huolto- ja virheilmoituksia</li>
+                    </ul>
+                    <p>Lisäksi mobiilisovelluksen kautta käyttäjä voi ajastaa puhdistuksen ja säätää asetuksia etänä.</p>
+                </div>
+
                 <div class="project-features">
                     <h3>Projektin ominaisuudet</h3>
                     <ul>
-                        <li>Robotin liike-ohjaus</li>
-                        <li>Ulkoisten antureiden käyttö</li>
-                        <li>Käyttöliittymärobottia varten</li>
-                        <li>Mekaniikan suunnittelu ja toteutus</li>
-                        <li>Testaus ja optimointi</li>
+                        <li>Auton tunnistus ja mallinnus</li>
+                        <li>Autonominen navigointi</li>
+                        <li>Anturipohjainen turvallisuus</li>
+                        <li>Ohjelmistologiikan suunnittelu</li>
+                        <li>Käyttöliittymäsuunnittelu</li>
+                        <li>Mekaaninen suunnittelu</li>
                     </ul>
                 </div>
 
@@ -114,8 +175,11 @@
                         <span class="tag">Ohjelmointi</span>
                         <span class="tag">Mekaniikka</span>
                         <span class="tag">Elektroniikka</span>
+                        <span class="tag">Anturiteknologia</span>
+                        <span class="tag">LIDAR</span>
+                        <span class="tag">Mikro-ohjaimet</span>
                         <span class="tag">Suunnittelu</span>
-                        <span class="tag">Testaus</span>
+                        <span class="tag">Pseudokoodi</span>
                     </div>
                 </div>
             </div>
