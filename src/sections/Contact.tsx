@@ -49,7 +49,7 @@ export default function Contact() {
     {
       icon: Linkedin,
       label: t('contact.linkedin'),
-      value: 'LinkedIn',
+      value: 'Elias Tarvainen',
       href: 'https://www.linkedin.com/in/elias-tarvainen-9528363a9/',
       color: 'from-pink-500 to-orange-500',
     },

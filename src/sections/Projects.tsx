@@ -44,7 +44,7 @@ export default function Projects() {
       title: t('projects.roboTitle'),
       type: t('projects.school'),
       description: t('projects.roboDesc'),
-      link: '#',
+      link: 'robo.pdf',
       linkText: t('projects.view'),
       image: 'robo',
     },
