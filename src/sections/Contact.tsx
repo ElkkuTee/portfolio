@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../context/LanguageContext';
 import MagneticButton from '../components/MagneticButton';
-import { Mail, Phone, Github, MessageCircle, Send } from 'lucide-react';
+import { Mail, Linkedin, Github, MessageCircle, Send } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,10 +47,10 @@ export default function Contact() {
       color: 'from-purple-500 to-pink-500',
     },
     {
-      icon: Phone,
-      label: t('contact.phone'),
-      value: '+358 40 1234567',
-      href: 'tel:+358401234567',
+      icon: Linkedin,
+      label: t('contact.linkedin'),
+      value: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/elias-tarvainen-9528363a9/',
       color: 'from-pink-500 to-orange-500',
     },
     {

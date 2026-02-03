@@ -80,7 +80,7 @@ const fiTranslations: Translations = {
     title: 'Yhteydenotto',
     subtitle: 'Ota yhteyttä ja kerro miten voin auttaa!',
     email: 'Sähköposti',
-    phone: 'Puhelin',
+    linkedin: 'LinkedIn',
     github: 'GitHub',
   },
   footer: {
@@ -164,7 +164,7 @@ const enTranslations: Translations = {
     title: 'Contact',
     subtitle: 'Get in touch and let me know how I can help!',
     email: 'Email',
-    phone: 'Phone',
+    linkedin: 'LinkedIn',
     github: 'GitHub',
   },
   footer: {
