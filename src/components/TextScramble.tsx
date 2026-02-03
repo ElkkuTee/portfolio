@@ -8,7 +8,7 @@ interface TextScrambleProps {
   loop?: boolean;
 }
 
-const chars = '!<>-\/[]{}=+*^?#';
+const CHARS = '!<>-\/[]{}=+*^?#';
 
 export default function TextScramble({ 
   text, 
@@ -31,22 +31,21 @@ export default function TextScramble({
       return;
     }
 
-    let currentDisplayText = displayText;
-
     const performScramble = () => {
       if (isAnimating.current) return;
       isAnimating.current = true;
 
       const timeout = setTimeout(() => {
-        const length = Math.max(text.length, currentDisplayText.length);
+        const length = Math.max(text.length, displayText.length);
         const queue: typeof queueRef.current = [];
 
+        // Pre-generate random values to reduce per-frame calculations
         for (let i = 0; i < length; i++) {
-          const from = currentDisplayText[i] || '';
-          const to = isUnscrambling.current ? text[i] || '' : chars[Math.floor(Math.random() * chars.length)];
+          const from = displayText[i] || '';
+          const to = isUnscrambling.current ? text[i] || '' : CHARS[Math.floor(Math.random() * CHARS.length)];
           const start = Math.floor(Math.random() * 20);
           const end = start + Math.floor(Math.random() * 20);
-          queue.push({ from, to, start, end });
+          queue.push({ from, to, start, end, char: CHARS[Math.floor(Math.random() * CHARS.length)] });
         }
 
         queueRef.current = queue;
@@ -57,25 +56,23 @@ export default function TextScramble({
           let complete = 0;
 
           for (let i = 0; i < queue.length; i++) {
-            const { from, to, start, end } = queue[i];
-            let char = queue[i].char;
+            const item = queue[i];
+            const { from, to, start, end } = item;
 
             if (frameCounter.current >= end) {
               complete++;
               output += to;
             } else if (frameCounter.current >= start) {
-              if (!char || Math.random() < 0.28) {
-                char = chars[Math.floor(Math.random() * chars.length)];
-                queue[i].char = char;
+              if (Math.random() < 0.28) {
+                item.char = CHARS[Math.floor(Math.random() * CHARS.length)];
               }
-              output += char;
+              output += item.char;
             } else {
               output += from;
             }
           }
 
           setDisplayText(output);
-          currentDisplayText = output;
 
           if (complete === queue.length) {
             isAnimating.current = false;
@@ -104,5 +101,5 @@ export default function TextScramble({
     };
   }, [text, trigger, delay, loop]);
 
-  return <span className={className}>{displayText}</span>;
+  return <span className={`whitespace-nowrap ${className}`}>{displayText}</span>;
 }
