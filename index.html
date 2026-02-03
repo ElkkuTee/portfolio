@@ -1,240 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elias Tarvainen - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Elias Tarvainen - Software Development Student Portfolio. Web Development, Game Programming, and Robotics." />
+    <meta name="theme-color" content="#0a0a0f" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Enhanced Background -->
-    <div class="background-effects">
-        <div class="gradient-overlay"></div>
-        <div class="particles"></div>
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-    </div>
-    
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">Elias Tarvainen</div>
-            <ul class="nav-links">
-                <li><a href="#about" data-i18n="nav.about">Tietoja minusta</a></li>
-                <li><a href="#experience" data-i18n="nav.experience">Kokemus</a></li>
-                <li><a href="#skills" data-i18n="nav.skills">Taidot</a></li>
-                <li><a href="#projects" data-i18n="nav.projects">Projektit</a></li>
-                <li><a href="#contact" data-i18n="nav.contact">Yhteydenotto</a></li>
-            </ul>
-            <button class="lang-switcher" id="langSwitcher" aria-label="Switch language">
-                <span class="lang-icon">🌐</span>
-                <span class="lang-text" id="langText">EN</span>
-            </button>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Elias Tarvainen</h1>
-            <p class="hero-subtitle" data-i18n="hero.subtitle">Ohjelmistokehitysopiskelija | Web-kehitys | Peliohjelmointi | Robotiikka</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary" data-i18n="hero.projects">Projektit</a>
-                <a href="cv.pdf" class="btn btn-secondary" target="_blank">CV</a>
-                <a href="#contact" class="btn btn-secondary" data-i18n="hero.contact">Ota yhteyttä</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title" data-i18n="about.title">Tietoja minusta</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p data-i18n="about.p1">Olen ohjelmistokehitysopiskelija, jolla on kiinnostus moderniin teknologiaan ja sovelluskehitykseen. Harjoittelen erilaisten ohjelmointiratkaisujen toteuttamista ja kehitän osaamistani jatkuvasti projektien ja kokeilujen kautta. Tavoitteenani on rakentaa selkeitä, toimivia ja käyttäjäystävällisiä ratkaisuja.</p>
-                    <p data-i18n="about.p2">Ohjelmoinnin maailmaan tutustuin jo nuorena, ja siitä lähtien olen ollut innokas oppimaan uutta. Kouluprojektien lisäksi olen toteuttanut useita vapaa-ajan projekteja, jotka ovat auttaneet minua kehittämään käytännön taitoja ja ymmärtämään paremmin ohjelmistokehityksen eri osa-alueita.</p>
-                    <p data-i18n="about.p3">Eriityisesti olen kiinnostunut web-kehityksestä, peliohjelmoinnista ja robotiikasta. Uskon, että käytännön projektit ovat paras tapa oppia, joten pyrin aina toteuttamaan ideoitani konkreettiseksi koodiksi. Tulevaisuudessa haluan jatkaa oppimista ja kehittyä osaavaksi ohjelmistokehittäjäksi.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section experience">
-        <div class="container">
-            <h2 class="section-title" data-i18n="experience.title">Aiempi kokemus</h2>
-            <div class="experience-list">
-                <div class="experience-item">
-                    <div class="experience-icon">💻</div>
-                    <div class="experience-details">
-                        <h3 data-i18n="experience.software">Ohjelmistokehitys</h3>
-                        <span class="experience-date" data-i18n="experience.softwareDate">2025–nykyhetki</span>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-icon">🚀</div>
-                    <div class="experience-details">
-                        <h3 data-i18n="experience.projects">Vapaa-ajan projektit</h3>
-                        <span class="experience-date" data-i18n="experience.projectsDate">2021–nykyhetki</span>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-icon">🎓</div>
-                    <div class="experience-details">
-                        <h3 data-i18n="experience.school">Peruskoulu</h3>
-                        <span class="experience-date" data-i18n="experience.schoolDate">2016–2025</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <div class="container">
-            <h2 class="section-title" data-i18n="skills.title">Taidot</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 data-i18n="skills.programming">Ohjelmointikielet</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Python</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 data-i18n="skills.web">Web-kehitys</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag" data-i18n="skills.responsive">Responsiivinen suunnittelu</span>
-                        <span class="skill-tag" data-i18n="skills.frontend">Frontend-kehitys</span>
-                        <span class="skill-tag" data-i18n="skills.backend">Backend-kehitys</span>
-                        <span class="skill-tag" data-i18n="skills.websites">Verkkosivut</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 data-i18n="skills.other">Muut taidot</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag" data-i18n="skills.game">Peliohjelmointi (Roblox)</span>
-                        <span class="skill-tag" data-i18n="skills.robotics">Robotiikka</span>
-                        <span class="skill-tag" data-i18n="skills.problem">Ongelmanratkaisu</span>
-                        <span class="skill-tag" data-i18n="skills.management">Projektinhallinta</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 data-i18n="skills.languages">Kielitaito</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag" data-i18n="skills.finnish">Suomi (äidinkieli)</span>
-                        <span class="skill-tag" data-i18n="skills.english">Englanti (erinomainen)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Experience Section -->
-    <section class="section work">
-        <div class="container">
-            <h2 class="section-title" data-i18n="work.title">Työkokemus</h2>
-            <div class="work-grid">
-                <div class="work-item">
-                    <h3 data-i18n="work.tet">TET-harjoittelut</h3>
-                    <p data-i18n="work.daycare">Riekonmarjan päiväkoti<br>1 viikko</p>
-                    <p class="work-description" data-i18n="work.daycareDesc">Harjoittelin päiväkodin arjessa ja autoin lastenhoitotehtävissä. Opin tiimityöskentelyä ja vastuunkantoa.</p>
-                </div>
-                <div class="work-item">
-                    <h3 data-i18n="work.tet">TET-harjoittelut</h3>
-                    <p data-i18n="work.market">S-market Ritaharju<br>1 viikko</p>
-                    <p class="work-description" data-i18n="work.marketDesc">Opin kaupan alan perusteita, asiakaspalvelua ja varastotyöskentelyä. Harjoittelin erilaisia myymälätehtäviä.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section projects">
-        <div class="container">
-            <h2 class="section-title" data-i18n="projects.title">Projektit</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="robo.png">
-                    </div>
-                    <div class="project-content">
-                        <h3 data-i18n="projects.roboTitle">ParkPolish-robotti</h3>
-                        <p class="project-type" data-i18n="projects.school">Kouluprojekti</p>
-                        <p class="project-description" data-i18n="projects.roboDesc">Autonominen palvelurobotti autojen puhdistamiseen. Suunnitteluprojekti, jossa kehitettiin robotin toimintalogiikkaa.</p>
-                        <a href="robo-project.html" class="project-link" data-i18n="projects.view">Katso projektia →</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="osarkour.png">
-                    </div>
-                    <div class="project-content">
-                        <h3 data-i18n="projects.osarkourTitle">Osarkour peli ja kartta</h3>
-                        <p class="project-type" data-i18n="projects.school">Kouluprojekti</p>
-                        <p class="project-description" data-i18n="projects.osarkourDesc">Roblox-pelissä toteutettu parkour-peli ja sen kartta. Projekti sisälsi pelin mekaniikan suunnittelua ja visuaalisen toteutuksen luomista.</p>
-                        <a href="https://www.roblox.com/games/110680508484976/Osarkour" class="project-link" target="_blank" data-i18n="projects.view">Katso projektia →</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="parkourrebornhub.png">
-                    </div>
-                    <div class="project-content">
-                        <h3 data-i18n="projects.hubTitle">Community hub -sivusto</h3>
-                        <p class="project-type" data-i18n="projects.personal">Vapaa-ajan projekti</p>
-                        <p class="project-description" data-i18n="projects.hubDesc">Parkour-pelille tarkoitettu yhteisöalusta ja verkkosivusto (parkourreborn.com). Sivusto tarjoaa pelaajille tietoa pelistä, yhteisötoimintoja ja päivityksiä.</p>
-                        <a href="https://parkourreborn.com" class="project-link" target="_blank" data-i18n="projects.viewSite">Katso sivustoa →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title" data-i18n="contact.title">Yhteydenotto</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <a href="mailto:e.t@gmail.com">elias.tarvainen@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        <a href="tel:+358401234567">+358 40 1234567</a>
-                    </div>
-                    <div class="contact-item">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                        <a href="https://github.com/elkkutee" target="_blank">@elkkutee</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p data-i18n="footer">&copy; 2026 Elias Tarvainen. Kaikki oikeudet pidätetään.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Elias Tarvainen - Portfolio</title>
+    <style>
+      /* Critical CSS for initial load */
+      body {
+        margin: 0;
+        background: #0a0a0f;
+        color: #f8fafc;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      #root {
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
