@@ -22,6 +22,7 @@ export default function TextScramble({
   const queueRef = useRef<{ from: string; to: string; start: number; end: number; char?: string }[]>([]);
   const frameCounter = useRef(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const loopTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isUnscrambling = useRef(false);
   const isAnimating = useRef(false);
 
@@ -39,7 +40,6 @@ export default function TextScramble({
         const length = Math.max(text.length, displayText.length);
         const queue: typeof queueRef.current = [];
 
-        // Pre-generate random values to reduce per-frame calculations
         for (let i = 0; i < length; i++) {
           const from = displayText[i] || '';
           const to = isUnscrambling.current ? text[i] || '' : CHARS[Math.floor(Math.random() * CHARS.length)];
@@ -78,7 +78,7 @@ export default function TextScramble({
             isAnimating.current = false;
             if (loop) {
               isUnscrambling.current = !isUnscrambling.current;
-              timeoutRef.current = setTimeout(performScramble, 1500);
+              loopTimeoutRef.current = setTimeout(performScramble, 1500);
             }
             return;
           }
@@ -97,9 +97,11 @@ export default function TextScramble({
 
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (loopTimeoutRef.current) clearTimeout(loopTimeoutRef.current);
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
+      isAnimating.current = false;
     };
-  }, [text, trigger, delay, loop]);
+  }, [text, trigger, loop, delay]);
 
   return <span className={`whitespace-nowrap ${className}`}>{displayText}</span>;
 }
