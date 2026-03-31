@@ -46,7 +46,7 @@ export default function Projects() {
       description: t('projects.featuredDesc'),
       link: '/builds/parkour-notborn/index.html',
       linkText: t('projects.featuredOpen'),
-      image: 'parkourrebornhub',
+      image: 'notborn',
     },
     {
       title: t('projects.roboTitle'),
