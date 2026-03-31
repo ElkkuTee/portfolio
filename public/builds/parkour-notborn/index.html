@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parkour Notborn</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #040814;
+        --panel: rgba(15, 23, 42, 0.72);
+        --border: rgba(255, 255, 255, 0.12);
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --accent: #22d3ee;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(circle at top, rgba(34, 211, 238, 0.16), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.18), transparent 34%),
+          var(--bg);
+        color: var(--text);
+        font-family: Inter, system-ui, sans-serif;
+        overflow: hidden;
+      }
+
+      body {
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+      }
+
+      #unity-shell {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background: #020617;
+      }
+
+      #unity-canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #020617;
+      }
+
+      #unity-overlay {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(180deg, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.45));
+        z-index: 2;
+        transition: opacity 220ms ease;
+      }
+
+      #unity-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .status-card {
+        width: min(420px, calc(100vw - 32px));
+        padding: 22px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--panel);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      .status-label {
+        margin: 0 0 8px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .status-title {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.1;
+      }
+
+      .status-copy {
+        margin: 10px 0 18px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .status-bar {
+        width: 100%;
+        height: 10px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.15);
+      }
+
+      .status-bar > span {
+        display: block;
+        width: 0%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #22d3ee, #a855f7);
+        transition: width 160ms linear;
+      }
+
+      #unity-error {
+        margin-top: 14px;
+        color: #fda4af;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="unity-shell">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+
+      <div id="unity-overlay">
+        <div class="status-card">
+          <p class="status-label">Playable WebGL Build</p>
+          <h1 class="status-title">Parkour Notborn</h1>
+          <p class="status-copy">
+            Loading the Unity runtime. Keep this frame visible until the progress bar completes.
+          </p>
+          <div class="status-bar"><span id="unity-progress"></span></div>
+          <div id="unity-error" hidden></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const canvas = document.getElementById('unity-canvas');
+      const overlay = document.getElementById('unity-overlay');
+      const progressBar = document.getElementById('unity-progress');
+      const errorNode = document.getElementById('unity-error');
+
+      let unityInstance = null;
+
+      const buildUrl = './Build';
+      const config = {
+        dataUrl: buildUrl + '/parkour-notborn.data',
+        frameworkUrl: buildUrl + '/parkour-notborn.framework.js',
+        codeUrl: buildUrl + '/parkour-notborn.wasm',
+        streamingAssetsUrl: 'StreamingAssets',
+        companyName: 'Portfolio',
+        productName: 'Parkour Notborn',
+        productVersion: '1.0',
+      };
+
+      function showError(message) {
+        errorNode.hidden = false;
+        errorNode.textContent = message;
+      }
+
+      function requestUnityFullscreen() {
+        if (unityInstance && typeof unityInstance.SetFullscreen === 'function') {
+          unityInstance.SetFullscreen(1);
+        }
+      }
+
+      window.addEventListener('message', (event) => {
+        if (event.origin !== window.location.origin) {
+          return;
+        }
+
+        if (event.data && event.data.type === 'parkour-notborn:fullscreen') {
+          requestUnityFullscreen();
+        }
+      });
+
+      window.requestUnityFullscreen = requestUnityFullscreen;
+
+      const loaderScript = document.createElement('script');
+      loaderScript.src = buildUrl + '/parkour-notborn.loader.js';
+      loaderScript.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBar.style.width = `${Math.round(progress * 100)}%`;
+        })
+          .then((instance) => {
+            unityInstance = instance;
+            overlay.classList.add('hidden');
+          })
+          .catch((message) => {
+            showError(message);
+          });
+      };
+      loaderScript.onerror = () => {
+        showError(
+          'Unity loader missing. Export the WebGL build and place the generated files in /public/builds/parkour-notborn/Build/.'
+        );
+      };
+      document.body.appendChild(loaderScript);
+    </script>
+  </body>
+</html>
