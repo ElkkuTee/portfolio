@@ -3,7 +3,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../context/LanguageContext';
 import TiltCard from '../components/TiltCard';
-import ParkourNotbornEmbed from '../components/ParkourNotbornEmbed';
 import { FolderGit2, ExternalLink, Sparkles } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -41,6 +40,14 @@ export default function Projects() {
   }, []);
 
   const projects = [
+    {
+      title: t('projects.featuredTitle'),
+      type: t('projects.personal'),
+      description: t('projects.featuredDesc'),
+      link: '/builds/parkour-notborn/index.html',
+      linkText: t('projects.featuredOpen'),
+      image: 'parkourrebornhub',
+    },
     {
       title: t('projects.roboTitle'),
       type: t('projects.school'),
@@ -93,10 +100,6 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text">
             {t('projects.title')}
           </h2>
-        </div>
-
-        <div className="mb-10">
-          <ParkourNotbornEmbed />
         </div>
 
         {/* Projects Grid */}
