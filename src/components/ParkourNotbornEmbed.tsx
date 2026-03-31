@@ -1,20 +1,10 @@
-import { useRef, useState } from 'react';
-import { Expand, Gamepad2, ExternalLink } from 'lucide-react';
+import { Gamepad2, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const PARKOUR_NOTBORN_IFRAME = '/builds/parkour-notborn/index.html';
 
 export default function ParkourNotbornEmbed() {
   const { t } = useLanguage();
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [isReady, setIsReady] = useState(false);
-
-  const handleFullscreen = () => {
-    iframeRef.current?.contentWindow?.postMessage(
-      { type: 'parkour-notborn:fullscreen' },
-      window.location.origin
-    );
-  };
 
   return (
     <div className="parkour-showcase glass-card overflow-hidden">
@@ -49,34 +39,24 @@ export default function ParkourNotbornEmbed() {
       </div>
 
       <div className="px-4 pb-4 pt-4 md:px-6 md:pb-6">
-        <div className="parkour-embed-frame">
-          {!isReady && (
-            <div className="parkour-loading-overlay">
-              <span className="parkour-loading-chip">Loading Parkour Notborn...</span>
-            </div>
-          )}
-
-          <iframe
-            ref={iframeRef}
-            title="Parkour Notborn"
-            src={PARKOUR_NOTBORN_IFRAME}
-            className="parkour-embed-iframe"
-            allow="fullscreen; autoplay"
-            scrolling="no"
-            onLoad={() => setIsReady(true)}
-          />
-        </div>
-
-        <div className="mt-4 flex justify-end">
-          <button
-            type="button"
-            onClick={handleFullscreen}
-            disabled={!isReady}
-            className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-200 transition-all hover:border-cyan-300/50 hover:bg-cyan-400/20 disabled:cursor-not-allowed disabled:opacity-50"
+        <div className="parkour-preview-panel">
+          <div className="parkour-preview-copy">
+            <p className="text-sm leading-7 text-slate-300 md:text-base">
+              {t('projects.featuredDesc')}
+            </p>
+            <p className="mt-2 text-sm text-slate-400">
+              {t('projects.featuredNote')}
+            </p>
+          </div>
+          <a
+            href={PARKOUR_NOTBORN_IFRAME}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-3 text-sm font-semibold text-cyan-200 transition-all hover:border-cyan-300/50 hover:bg-cyan-400/20"
           >
-            <Expand className="h-4 w-4" />
-            {t('projects.featuredFullscreen')}
-          </button>
+            {t('projects.featuredOpen')}
+            <ExternalLink className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </div>

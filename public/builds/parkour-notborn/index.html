@@ -34,16 +34,83 @@
 
       body {
         display: flex;
-        align-items: stretch;
-        justify-content: stretch;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      #page-shell {
+        width: min(1440px, 100%);
+      }
+
+      #page-header {
+        margin: 0 auto 18px;
+        max-width: 1200px;
+        text-align: left;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .title-row {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(30px, 5vw, 54px);
+        line-height: 1;
+      }
+
+      .meta {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .toolbar {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .toolbar button {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.72);
+        color: var(--text);
+        padding: 10px 16px;
+        font: inherit;
+        cursor: pointer;
+        transition: border-color 180ms ease, background 180ms ease;
+      }
+
+      .toolbar button:hover {
+        border-color: rgba(34, 211, 238, 0.5);
+        background: rgba(34, 211, 238, 0.14);
       }
 
       #unity-shell {
         position: relative;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        max-height: calc(100vh - 160px);
+        margin: 0 auto;
         overflow: hidden;
         background: #020617;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
       }
 
       #unity-canvas {
@@ -126,18 +193,32 @@
     </style>
   </head>
   <body>
-    <div id="unity-shell">
-      <canvas id="unity-canvas" tabindex="-1"></canvas>
+    <div id="page-shell">
+      <header id="page-header">
+        <p class="eyebrow">Standalone WebGL Build</p>
+        <div class="title-row">
+          <div>
+            <h1>Parkour Notborn</h1>
+          </div>
+          <div class="toolbar">
+            <button type="button" id="fullscreen-button">Fullscreen</button>
+          </div>
+        </div>
+      </header>
 
-      <div id="unity-overlay">
-        <div class="status-card">
-          <p class="status-label">Playable WebGL Build</p>
-          <h1 class="status-title">Parkour Notborn</h1>
-          <p class="status-copy">
-            Loading the Unity runtime. Keep this frame visible until the progress bar completes.
-          </p>
-          <div class="status-bar"><span id="unity-progress"></span></div>
-          <div id="unity-error" hidden></div>
+      <div id="unity-shell">
+        <canvas id="unity-canvas" tabindex="-1"></canvas>
+
+        <div id="unity-overlay">
+          <div class="status-card">
+            <p class="status-label">Playable WebGL Build</p>
+            <h2 class="status-title">Parkour Notborn</h2>
+            <p class="status-copy">
+              Loading the Unity runtime. Keep this frame visible until the progress bar completes.
+            </p>
+            <div class="status-bar"><span id="unity-progress"></span></div>
+            <div id="unity-error" hidden></div>
+          </div>
         </div>
       </div>
     </div>
@@ -147,6 +228,7 @@
       const overlay = document.getElementById('unity-overlay');
       const progressBar = document.getElementById('unity-progress');
       const errorNode = document.getElementById('unity-error');
+      const fullscreenButton = document.getElementById('fullscreen-button');
 
       let unityInstance = null;
 
@@ -158,7 +240,7 @@
         streamingAssetsUrl: 'StreamingAssets',
         companyName: 'Portfolio',
         productName: 'Parkour Notborn',
-        productVersion: '1.0',
+        productVersion: '0.8',
       };
 
       function showError(message) {
@@ -171,6 +253,8 @@
           unityInstance.SetFullscreen(1);
         }
       }
+
+      fullscreenButton.addEventListener('click', requestUnityFullscreen);
 
       window.addEventListener('message', (event) => {
         if (event.origin !== window.location.origin) {
@@ -197,11 +281,6 @@
           .catch((message) => {
             showError(message);
           });
-      };
-      loaderScript.onerror = () => {
-        showError(
-          'Unity loader missing. Export the WebGL build and place the generated files in /public/builds/parkour-notborn/Build/.'
-        );
       };
       document.body.appendChild(loaderScript);
     </script>

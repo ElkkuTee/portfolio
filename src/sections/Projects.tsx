@@ -42,14 +42,6 @@ export default function Projects() {
 
   const projects = [
     {
-      title: t('projects.featuredTitle'),
-      type: t('projects.personal'),
-      description: t('projects.featuredDesc'),
-      link: '/builds/parkour-notborn/index.html',
-      linkText: t('projects.featuredOpen'),
-      image: 'parkourrebornhub',
-    },
-    {
       title: t('projects.roboTitle'),
       type: t('projects.school'),
       description: t('projects.roboDesc'),

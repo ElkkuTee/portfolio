@@ -505,49 +505,27 @@ body {
     rgba(15, 23, 42, 0.55);
 }
 
-.parkour-embed-frame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    linear-gradient(135deg, rgba(8, 14, 32, 0.95), rgba(4, 8, 20, 0.98));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 24px 50px rgba(0, 0, 0, 0.35);
-}
-
-.parkour-embed-iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  overflow: hidden;
-}
-
-.parkour-loading-overlay {
-  position: absolute;
-  inset: 0;
+.parkour-preview-panel {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   background:
-    linear-gradient(135deg, rgba(3, 7, 18, 0.72), rgba(15, 23, 42, 0.45));
-  z-index: 1;
-  pointer-events: none;
+    linear-gradient(135deg, rgba(8, 14, 32, 0.9), rgba(4, 8, 20, 0.96));
+  padding: 1.5rem;
 }
 
-.parkour-loading-chip {
-  border-radius: 9999px;
-  border: 1px solid rgba(34, 211, 238, 0.2);
-  background: rgba(8, 14, 32, 0.85);
-  padding: 0.75rem 1rem;
-  color: #cffafe;
-  font-size: 0.875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.parkour-preview-copy {
+  max-width: 44rem;
+}
+
+@media (min-width: 768px) {
+  .parkour-preview-panel {
+    align-items: end;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 /* Experience Timeline */
